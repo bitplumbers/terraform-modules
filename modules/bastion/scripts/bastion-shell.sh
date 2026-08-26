@@ -69,7 +69,7 @@ export AWS_SESSION_TOKEN
 
 BASTION_ID=$(
     aws ssm get-parameter \
-    --name "/${BASTION_NAME}/bastion/instance-id" \
+    --name "/bastion/${BASTION_NAME}/instance-id" \
     --query "Parameter.Value" \
     --output text
 ) || echo "${BASTION_NAME} is not registered in SSM"

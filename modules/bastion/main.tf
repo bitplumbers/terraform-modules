@@ -148,7 +148,7 @@ resource "aws_cloudwatch_log_group" "bastion" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 resource "aws_ssm_parameter" "bastion_instance_id" {
-  name  = "/${var.name}/bastion/instance-id"
+  name  = "/bastion/${var.name}/instance-id"
   type  = "String"
   value = aws_instance.bastion.id
 
