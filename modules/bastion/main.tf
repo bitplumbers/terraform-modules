@@ -162,9 +162,10 @@ resource "aws_ssm_parameter" "bastion_instance_id" {
 data "aws_route53_zone" "bastion" {
   zone_id = var.route53_zone_id
 }
+
 resource "aws_route53_record" "bastion" {
   zone_id = data.aws_route53_zone.bastion.zone_id
-  name    = "bastion.${data.aws_route53_zone.bastion.name}"
+  name    = "bastion-${var.name}.${data.aws_route53_zone.bastion.name}"
   type    = "A"
   ttl     = "300"
   records = [aws_instance.bastion.private_ip]
