@@ -36,3 +36,9 @@ variable "user_data" {
   type        = string
   default     = null
 }
+
+variable "ami_id" {
+  description = "AMI ID to use for the bastion instance. If not provided, the most recent Ubuntu Jammy arm64 AMI is looked up automatically."
+  type        = string
+  default     = null
+}
