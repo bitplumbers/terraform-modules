@@ -47,7 +47,7 @@ locals {
   user_data_content = var.user_data != null ? var.user_data : file("${path.module}/user-data.sh")
 }
 resource "aws_instance" "bastion" {
-  ami                         = data.aws_ami.ubuntu.id
+  ami                         = coalesce(var.ami_id, data.aws_ami.ubuntu.id)
   instance_type               = "t4g.nano"
   user_data_replace_on_change = true
 
